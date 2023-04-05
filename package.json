@@ -1,13 +1,13 @@
 {
   "name": "receita-facil",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "server": "json-server --watch -d 180 --host localhost src/data/db.json"
+    "server": "json-server --watch -d 180 --host 192.168.101.9 src/data/db.json"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -20,13 +20,11 @@
     "expo-linear-gradient": "^12.1.2",
     "expo-splash-screen": "^0.18.1",
     "expo-status-bar": "~1.4.4",
-    "json-server": "^0.17.3",
     "nativewind": "^2.0.11",
     "react": "18.2.0",
     "react-native": "0.71.6",
     "react-native-safe-area-context": "4.5.0",
-    "react-native-screens": "~3.20.0",
-    "uuid": "^9.0.0"
+    "react-native-screens": "~3.20.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
