@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import FavoritsScreen from "./src/screens/FavoritsScreen";
 import HomeScreen from "./src/screens/HomeScreen";
+import StackRoutes from "./src/routes/stackRoutes";
 
 const Tab = createBottomTabNavigator();
 
@@ -43,8 +44,8 @@ export default function App() {
               />
             ),
           }}
-          name="Home"
-          component={HomeScreen}
+          name="HomeScreen"
+          component={StackRoutes}
         />
         <Tab.Screen
           options={{

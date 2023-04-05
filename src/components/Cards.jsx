@@ -5,34 +5,27 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import api from "../api";
+import { useNavigation } from "@react-navigation/native";
 
-const Cards = () => {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const Cards = ({ data }) => {
+  const navigation = useNavigation();
 
-  function fetchAPI() {
-    api
-      .get("/foods")
-      .then((res) => setData(res.data))
-      .catch((error) => console.error(error));
-  }
+  const handleNavigate = () => {
+    navigation.navigate("Detail", { data: data });
+  };
 
-  useEffect(() => {
-    fetchAPI();
-  }, []);
-
-  console.log(data);
   return (
     <FlatList
       className="w-full py-4"
       data={data}
+      showsVerticalScrollIndicator={false}
       renderItem={({ item }) => (
         <TouchableOpacity
           className="w-full rounded-xl mb-4 h-[172px] overflow-hidden"
           activeOpacity={0.8}
+          onPress={handleNavigate}
         >
           <ImageBackground
             source={{ uri: item.cover }}
@@ -49,7 +42,7 @@ const Cards = () => {
               </Text>
               <View className="flex-row">
                 <Text className="text-white">
-                  {item.total_ingredients} | {item.time}
+                  {item.total_ingredients} ingredientes | {item.time} minutos
                 </Text>
               </View>
             </LinearGradient>

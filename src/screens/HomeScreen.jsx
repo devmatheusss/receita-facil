@@ -5,6 +5,8 @@ import InputArea from "../components/InputArea";
 import { LinearGradient } from "expo-linear-gradient";
 import Cards from "../components/Cards";
 
+import { data } from "../data";
+
 const HomeScreen = () => {
   return (
     <View className="flex-1">
@@ -18,7 +20,7 @@ const HomeScreen = () => {
           Encontre a receita que combina com você
         </Text>
         <InputArea />
-        <Cards />
+        <Cards data={data.foods} />
       </LinearGradient>
     </View>
   );
