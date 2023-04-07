@@ -1,10 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useFonts } from "expo-font";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, Feather, FontAwesome } from "@expo/vector-icons";
+import "react-native-reanimated";
+import "react-native-gesture-handler";
 
 import FavoritsScreen from "./src/screens/FavoritsScreen";
-import HomeScreen from "./src/screens/HomeScreen";
 import StackRoutes from "./src/routes/stackRoutes";
 
 const Tab = createBottomTabNavigator();
@@ -37,8 +38,8 @@ export default function App() {
         <Tab.Screen
           options={{
             tabBarIcon: ({ color, size, focused }) => (
-              <Ionicons
-                name={focused ? "home" : "home-outline"}
+              <Feather
+                name={focused ? "home" : "home"}
                 color={color}
                 size={size}
               />
@@ -50,8 +51,8 @@ export default function App() {
         <Tab.Screen
           options={{
             tabBarIcon: ({ color, size, focused }) => (
-              <Ionicons
-                name={focused ? "heart" : "heart-outline"}
+              <FontAwesome
+                name={focused ? "heart" : "heart-o"}
                 color={focused ? "#FF4141" : color}
                 size={size}
               />

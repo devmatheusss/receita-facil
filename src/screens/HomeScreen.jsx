@@ -1,4 +1,5 @@
-import { View, Text, StatusBar } from "react-native";
+import { StatusBar, FlatList } from "react-native";
+import { Text } from "moti";
 import React from "react";
 import Logo from "../components/Logo";
 import InputArea from "../components/InputArea";
@@ -9,20 +10,57 @@ import { data } from "../data";
 
 const HomeScreen = () => {
   return (
-    <View className="flex-1">
+    <LinearGradient
+      className="flex-1 items-start px-4 pt-4"
+      colors={["#F3F9FF", "white"]}
+    >
       <StatusBar barStyle={"dark-content"} backgroundColor={"#F3F9FF"} />
-      <LinearGradient
-        className="flex-1 items-start p-4"
-        colors={["#F3F9FF", "white"]}
+      <Logo />
+      <Text
+        from={{
+          opacity: 0,
+          translateY: 10,
+        }}
+        animate={{
+          opacity: 1,
+          translateY: 0,
+        }}
+        transition={{
+          type: "spring",
+          duration: 800,
+          delay: 200,
+        }}
+        className="font-interBold text-4xl"
       >
-        <Logo />
-        <Text className="font-interBold text-4xl mb-4">
-          Encontre a receita que combina com você
-        </Text>
-        <InputArea />
-        <Cards data={data.foods} />
-      </LinearGradient>
-    </View>
+        Encontre a receita
+      </Text>
+      <Text
+        from={{
+          opacity: 0,
+          translateY: 10,
+        }}
+        animate={{
+          opacity: 1,
+          translateY: 0,
+        }}
+        transition={{
+          type: "spring",
+          duration: 800,
+          delay: 300,
+        }}
+        className="font-interBold text-4xl mb-4"
+      >
+        que combina com você
+      </Text>
+      <InputArea />
+      <FlatList
+        className="w-full py-4"
+        data={data}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item }) => <Cards data={item} />}
+        keyExtractor={(item) => String(item.id)}
+      />
+    </LinearGradient>
   );
 };
 
