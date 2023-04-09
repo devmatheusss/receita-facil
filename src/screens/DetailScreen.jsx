@@ -6,6 +6,7 @@ import {
   ScrollView,
   View,
   Modal,
+  StatusBar,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -59,6 +60,7 @@ const DetailScreen = () => {
 
   return (
     <ScrollView className="flex-1 ">
+      <StatusBar barStyle="dark-content" backgroundColor="white" />
       <LinearGradient className="flex-1 p-4" colors={["#F3F9FF", "white"]}>
         <ImageBackground
           source={{ uri: route.params?.data.cover }}

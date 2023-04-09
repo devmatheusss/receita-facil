@@ -1,11 +1,11 @@
-import { View, Text, ImageBackground, FlatList } from "react-native";
+import { Text, FlatList } from "react-native";
 import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { getFavorites } from "../utils/storage";
 import { useIsFocused } from "@react-navigation/native";
 import Cards from "../components/Cards";
 
-const FavoritsScreen = () => {
+const FavoritesScreen = () => {
   const [recipes, setRecipes] = useState([]);
   const isFocused = useIsFocused();
 
@@ -44,4 +44,4 @@ const FavoritsScreen = () => {
   );
 };
 
-export default FavoritsScreen;
+export default FavoritesScreen;
